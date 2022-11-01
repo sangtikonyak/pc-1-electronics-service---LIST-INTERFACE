@@ -37,10 +37,11 @@ public class ElectronicListService {
     public static boolean removeElectronicsItemFromList(List<String> itemList, String removeItem)
     {
         boolean flag = false;
-        for (String s : itemList) {
-            if (itemList.contains(removeItem))
+        for(int i=0;i<itemList.size();i++)
+        {
+            if (itemList.get(i).contains(removeItem))
             {
-                itemList.remove(removeItem);
+                itemList.remove(itemList.get(i));
                 flag=true;
             }
         }
@@ -48,9 +49,10 @@ public class ElectronicListService {
     }
 
     public static void main(String[] args) {
-        List<String>electronicItems;
-        addElectronicsItemsToList("laptop,grid,pie,pie");
+        List<String>electronicItems=addElectronicsItemsToList("laptop,grid,pie,pie");
+
        // System.out.println("electronicItems.size() = " + electronicItems.size());
+        System.out.println("removeElectronicsItemFromList(electronicItems,\"pie\") = " + removeElectronicsItemFromList(electronicItems, "pie"));
     }
 
 }
